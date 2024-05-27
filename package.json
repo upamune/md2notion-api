@@ -1,0 +1,21 @@
+{
+  "name": "md2notion-api",
+  "module": "index.ts",
+  "type": "module",
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20240512.0",
+    "@types/bun": "latest",
+    "wrangler": "^3.57.1"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@tryfabric/martian": "^1.2.4",
+    "hono": "^4.3.11"
+  },
+  "scripts": {
+    "start": "wrangler dev index.ts",
+    "deploy": "wrangler deploy --minify index.ts"
+  }
+}

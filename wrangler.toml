@@ -1,0 +1,3 @@
+name = "md2notion"
+compatibility_date = "2023-01-01"
+node_compat = true
