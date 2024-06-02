@@ -14,12 +14,18 @@ const convertMarkdownToNotion = (markdown: string) => {
 app.post('/v1/convert', async (c) => {
   try {
     // リクエストボディからマークダウンを取得
-    const { markdown } = await c.req.json()
+    const markdown = await c.req.text()
+    const { children } = c.req.query()
 
     // マークダウンをNotionの形式のJSONに変換
     const notionBlocks = convertMarkdownToNotion(markdown);
 
-    // レスポンスとしてNotionの形式のJSONを返す
+    if (children === "true") {
+      return c.json({
+        children: notionBlocks
+      });
+    }
+
     return c.json(notionBlocks);
   } catch (error) {
     // エラーハンドリング
